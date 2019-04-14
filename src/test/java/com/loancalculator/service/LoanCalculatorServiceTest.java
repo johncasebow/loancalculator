@@ -1,10 +1,9 @@
 package com.loancalculator.service;
 
-import com.loancalculator.domain.Loan;
 import com.loancalculator.domain.InvalidLoanException;
+import com.loancalculator.domain.Loan;
 import com.loancalculator.domain.Offer;
 import com.loancalculator.repository.OfferRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,6 +12,8 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Set;
 import java.util.TreeSet;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LoanCalculatorServiceTest {
@@ -27,7 +28,7 @@ public class LoanCalculatorServiceTest {
 
         Loan loan = loanCalculatorService.calculateLoan(100.0);
 
-        Assertions.assertThat(loan).isEqualToComparingFieldByField(new Loan (100.0, Loan.DEFAULT_TERM, 0.07));
+        assertThat(loan).isEqualToComparingFieldByField(new Loan (100.0, Loan.DEFAULT_TERM, 0.07));
     }
 
     @Test
@@ -40,7 +41,7 @@ public class LoanCalculatorServiceTest {
 
         Loan loan = loanCalculatorService.calculateLoan(1500.0);
 
-        Assertions.assertThat(loan).isEqualToComparingFieldByField(new Loan (1500.0, Loan.DEFAULT_TERM, 0.22 / 3.0));
+        assertThat(loan).isEqualToComparingFieldByField(new Loan (1500.0, Loan.DEFAULT_TERM, 0.22 / 3.0));
     }
 
     @Test
@@ -53,7 +54,7 @@ public class LoanCalculatorServiceTest {
 
         Loan loan = loanCalculatorService.calculateLoan(100.0);
 
-        Assertions.assertThat(loan).isEqualToComparingFieldByField(new Loan (100.0, Loan.DEFAULT_TERM, 0.06));
+        assertThat(loan).isEqualToComparingFieldByField(new Loan (100.0, Loan.DEFAULT_TERM, 0.06));
     }
 
     @Test(expected = InvalidLoanException.class)

@@ -1,9 +1,9 @@
 package com.loancalculator.service;
 
-import com.loancalculator.domain.Loan;
-import com.loancalculator.repository.OfferRepository;
 import com.loancalculator.domain.InvalidLoanException;
+import com.loancalculator.domain.Loan;
 import com.loancalculator.domain.Offer;
+import com.loancalculator.repository.OfferRepository;
 
 import java.util.ArrayList;
 import java.util.Set;
